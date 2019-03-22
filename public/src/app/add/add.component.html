@@ -1,0 +1,40 @@
+<h3>Know of a pet needing a home?</h3>
+<button [routerLink]="['/']">Home</button>
+<div *ngIf="formStatus['uniqueness']">
+	<li>{{formStatus['uniqueness']}}</li>
+</div>
+<form (submit)='addPet($event)' method='POST' action='/pets/add'>
+	<label for='name'>Name:</label>
+	<br>
+	<input type='text' name='newPet.name' [(ngModel)]='newPet.name'>
+	<div *ngIf="formStatus['Pet name is required']">
+		<li>{{formStatus['Pet name is required']}}</li>
+	</div>
+	<br>
+	<label for='type'>Type:</label>
+	<br>
+	<input type='text' name='newPet.type' [(ngModel)]='newPet.type'>
+	<div *ngIf="formStatus['Pet type required']">
+		<li>{{formStatus['Pet type required']}}</li>
+	</div>
+	<br>
+	<label for='description'>Description:</label>
+	<br>
+	<textarea name='newPet.description' [(ngModel)]='newPet.description'>{{newPet.description}}</textarea>
+	<div *ngIf="formStatus['Pet description is required']">
+		<li>{{formStatus['Pet description is required']}}</li>
+	</div>
+	<br>
+	<label for='skills'>Skills (optional):</label>
+	<br>
+	<label for='skill_1'>Skill 1</label>
+	<input type='text' name='newPet.skill_1' [(ngModel)]='newPet.skill_1'>
+	<br>
+	<label for='skill_2'>Skill 2</label>
+	<input type='text' name='newPet.skill_2' [(ngModel)]='newPet.skill_2'>
+	<br>
+	<label for='skill_3'>Skill 3</label>
+	<input type='text' name='newPet.skill_3' [(ngModel)]='newPet.skill_3'>
+	<br>
+	<input type='submit' value='Submit'>
+</form>
