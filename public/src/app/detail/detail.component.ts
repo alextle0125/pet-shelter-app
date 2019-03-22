@@ -47,7 +47,7 @@ export class DetailComponent implements OnInit {
   	let obs = this._httpService.sendAdoptPet(id);
 
   	obs.subscribe(data => {
-  		if(data.status === 200) {
+  		if(data['status'] === 200) {
   			this._router.navigate(['/']);
   		}
   	})

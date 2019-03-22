@@ -55,7 +55,7 @@ export class EditComponent implements OnInit {
   updatePet(event: any): void {
   	let obs = this._httpService.sendUpdatePet(this.petId, this.editPet);
   	obs.subscribe(data => {
-  		if(data.status === 200) {
+  		if(data['status'] === 200) {
   			this._router.navigate(['/pets/show/' + this.petId]);
   		} else {
   			this.formStatus = data;
